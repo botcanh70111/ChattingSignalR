@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Core.Model;
+﻿using Core.Model;
+using System.Collections.Generic;
 
 namespace Core.IRepositories
 {

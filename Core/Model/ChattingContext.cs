@@ -1,13 +1,17 @@
-﻿using System.Data.Entity;
+﻿using Core.Migrations;
+using System.Data.Entity;
 
 namespace Core.Model
 {
-    class ChattingContext : DbContext
+    public class ChattingContext : DbContext
     {
-        public ChattingContext()
-            : base("name=ChattingConnection")
+        public ChattingContext() : base("name=ChattingConnection")
         {
+            Database.SetInitializer<ChattingContext>(new CreateDatabaseIfNotExists<ChattingContext>());
+            DbSeed.InsertBaseRoles();
         }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<Message> Messages { get; set; }
     }
 }

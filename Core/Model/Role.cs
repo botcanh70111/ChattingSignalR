@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.Model
 {
-    public class Message : DateTimeGeneric
+    public class Role : DateTimeGeneric
     {
-        public Message()
+        public Role()
         {
-            Users = new HashSet<User>();
+            this.Users = new HashSet<User>();
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        public Guid UserId { get; set; }
-        public Guid WithDestinationId { get; set; }
-        public string Messages { get; set; }
+        public Guid RoleId { get; set; }
+        public string RoleName { get; set; }
         public ICollection<User> Users { get; set; }
     }
 }

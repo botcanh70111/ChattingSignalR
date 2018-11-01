@@ -43,8 +43,10 @@ namespace EntityTest
             // Make sure to add a Unity.Configuration to the using statements.
 
             // TODO: Register your type's mappings here.
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             container.RegisterType<IMessageRepository, MessageRepository>();
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IRoleRepository, RoleRepository>();
+            
         }
     }
 }
